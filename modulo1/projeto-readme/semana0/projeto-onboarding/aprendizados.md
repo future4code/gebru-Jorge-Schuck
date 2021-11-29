@@ -1,0 +1,3 @@
+#Aprendizado da semana
+
+Essa semana foi **massa**, pois aprendi a mexer com o terminal, e também o famoso Git. O terminal foi interessante pois aprendi vários comandos que são extremamente necessários para o manuseio dentro dele. Já o Git, foi um pouco mais complexo, pois ele já está vinculado ao repositório que fica tanto no local quanto no remoto. Gostei bastante e senti que o Git não é aquele bixo de sete cabeças como "pintam" por aí.

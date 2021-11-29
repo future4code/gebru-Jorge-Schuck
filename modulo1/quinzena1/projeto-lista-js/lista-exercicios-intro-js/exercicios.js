@@ -50,6 +50,7 @@ const email = prompt("Digite seu email")
 console.log(`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}.`)
 
 
+
 }
 
 // EXERCÍCIO 05
@@ -114,6 +115,7 @@ return string1.toUpperCase() === string2.toUpperCase()
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
+
 let anoAtual = prompt('Qual é o ano atual?')
 let anoNascimento = prompt('Qual seu Ano de Nascimento?')
 let anoRg = prompt('Qual o ano da emissão de seu RG')
@@ -127,14 +129,19 @@ if (idade <= 20){
 
 
 
+
 }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
+
 let anoBissexto = ( ( ano % 4 == 0)  && ((ano % 100 != 0 ) || (ano % 400 == 0) ))
 return anoBissexto
 } 
+
+}
+
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
