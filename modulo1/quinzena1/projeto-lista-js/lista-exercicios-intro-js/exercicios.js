@@ -47,7 +47,8 @@ function imprimeInformacoesUsuario() {
 const nome = prompt("Digite seu nome")
 const idade = prompt("Digite sua idade")
 const email = prompt("Digite seu email")
-console.log()
+console.log(`Meu nome é ${nome}, tenho ${idade} anos, e o meu email é ${email}.`)
+
 
 
 }
@@ -115,13 +116,32 @@ return string1.toUpperCase() === string2.toUpperCase()
 function checaRenovacaoRG() {
   // implemente sua lógica aqui
 
+let anoAtual = prompt('Qual é o ano atual?')
+let anoNascimento = prompt('Qual seu Ano de Nascimento?')
+let anoRg = prompt('Qual o ano da emissão de seu RG')
+let idade = anoAtual - anoNascimento 
+if (idade <= 20){
+  console.log((anoAtual - anoRg)>=5)}
+  else if (idade >= 21){
+    console.log((anoAtual - anoRg)>=10)}
+    if (idade >= 51){
+      console.log((anoAtual - anoRg)>=15)}
+
+
+
+
 }
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   // implemente sua lógica aqui
 
+let anoBissexto = ( ( ano % 4 == 0)  && ((ano % 100 != 0 ) || (ano % 400 == 0) ))
+return anoBissexto
+} 
+
 }
+
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
