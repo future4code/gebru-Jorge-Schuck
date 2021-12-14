@@ -1,0 +1,24 @@
+AULA RESOLVENDO PROBLEMAS                                                
+EXERCÍCIOS DE FIXAÇÃO DO CONHECIMENTO
+RESUMO
+       Considerando que não existe uma única maneira para solucionar os 
+problemas de logica, mas que podemos adotar caminhos que auxiliem no processo 
+de interpretação e aplicação mais assertiva desses problemas, os seguintes passos 
+são sugeridos. 
+       Iniciar prestando atenção ao enunciado e na compreensão do sentido de 
+cada palavra nele apresentada. Encontrar no texto as informações relevantes, 
+palavras chaves que podem posteriormente se transformar em códigos. Pensar no 
+teste de entrada e saída, o que se espera de cada ação. Construir um fluxograma 
+organizar visualmente as ideias percebidas até o momento, pois só a partir desta 
+representação na nossa língua portuguesa, completamente estruturada, será 
+possível dar início a criação do código que resolverá o problema. Criado o código, 
+ainda em forma bruta, os testes poderão ser realizados. Após os testes, refatorar 
+para obter mais legibilidade, maior performance com menos consumo de memória 
+possível, prolongar sua vida útil ampliando sua aplicabilidade.
+       
+        
+        
+        
+        
+
+
