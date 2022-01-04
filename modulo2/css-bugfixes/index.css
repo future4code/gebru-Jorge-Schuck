@@ -121,6 +121,7 @@ td button {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+    
    
 }
 
@@ -149,4 +150,9 @@ img {
 }
 .botoes:hover{
     background-color:#a78c16
+}
+.bordas-caixa-texto{
+border-top: none;
+border-left: none;
+border-right: none;
 }
