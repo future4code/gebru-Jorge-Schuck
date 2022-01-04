@@ -144,3 +144,9 @@ img {
 #back-button:hover {
     background-color: #635a3d
 }
+.botoes:active{
+    color: white;
+}
+.botoes:hover{
+    background-color:#a78c16
+}
