@@ -60,7 +60,9 @@ div img {
 }
 
 .icone {
-    height: 15px;
+   
+    width: 50px;  
+    vertical-align: middle
 }
 
 
@@ -119,6 +121,7 @@ td button {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+   
 }
 
 .alinhamento-textos-tabela{
