@@ -121,6 +121,12 @@ td button {
     height: 100px;
 }
 
+.alinhamento-textos-tabela{
+    text-align: center;
+}
+img {
+    width: 70px;
+}
 
 #back-button {
     background-color: white;
