@@ -60,7 +60,6 @@ div img {
 .container {
     height: 500px;
     text-align: center;
-    
 }
 
 .icone {
@@ -80,6 +79,7 @@ div img {
     background-color: #2274a5;
     color: white;
     padding-top: 50px;
+
 }
 
 #container-de-descricao>ol {
@@ -127,6 +127,7 @@ td button {
 .container-do-search {
     margin-top: 20px;
     height: 100px;
+    text-align: center;
     
    
 }
@@ -166,6 +167,11 @@ border-left: none;
 border-right: none;
 }
 
-.alinhar-tabela{
-    text-align: right
+
+#efeito-botao:hover{
+    opacity:1;
+    
+}
+#efeito-botao:active{
+    background-color: black;
 }
