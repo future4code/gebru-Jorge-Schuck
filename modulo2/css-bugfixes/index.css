@@ -131,6 +131,9 @@ td button {
     
    
 }
+.alinhamento-textos-tabela{
+    text-align: center;
+}
 
 img {
     width: 70px;
