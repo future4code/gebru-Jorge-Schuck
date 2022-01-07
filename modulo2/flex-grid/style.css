@@ -1,0 +1,108 @@
+header{
+    height: 50px; 
+   display: flex; 
+   justify-content:space-between;
+   align-items: center;
+   background-color:mediumvioletred;
+   
+   
+}
+main{
+    display:flex
+}
+
+aside{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    flex-direction: column;
+    align-items: center;
+    justify-items:left;
+    padding-left: 22px;
+    padding-right: 12px;
+    padding-bottom: 590px;
+    background-color: #f2d0e0;
+    
+    
+    
+    
+
+}
+aside > button{
+    background: transparent;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    border-left: none;
+    font-weight: bold;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+section > img{
+   width: 237px;
+   
+}
+.seta{
+    margin-left: 120px;
+    height: 20px;
+    
+}
+div{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 9px;
+    margin-bottom: 15px;
+    margin-left: 16px;
+   
+    
+    
+    
+
+
+    
+    
+    
+}
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+    margin-right:20px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    font-weight: bold;
+
+}
+
+.imagem-icones{
+    height: 20px;
+    
+}
+
+#posicao-h1{
+    margin-right: auto;
+    padding-left: 10px;
+    margin-top: 26px;
+}
+#posicao-img{
+    margin-left: 20px;
+    height: 25px;
+}
+#posicao-button{
+    margin-right: 20px;
+}
+#posicao-texto-footer{
+    margin-left: auto;
+    margin-right: auto;
+}
+footer{
+    height: 50px; 
+   display: flex; 
+
+   align-items: center;
+   background-color:mediumvioletred;
+   
+   
+}
