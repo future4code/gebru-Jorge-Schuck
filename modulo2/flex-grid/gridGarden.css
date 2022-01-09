@@ -1,0 +1,72 @@
+/* 1 */
+#Lago {
+    display: flex;
+  justify-content:end
+  }
+  /* 2 */
+  #Lago {
+    display: flex;
+  justify-content:center;
+  }
+  /* 3 */
+  #Lago {
+    display: flex;
+  justify-content:space-around
+  }
+  /* 4 */
+  #Lago {
+    display: flex;
+  justify-content: space-between
+  }
+  /* 5 */
+  #Lago {
+    display: flex;
+  align-items: flex-end
+  }
+  /* 6 */
+  #Lago {
+    display: flex;
+  justify-content: center;
+  align-items: center
+  }
+  /* 7 */
+  #Lago {
+    display: flex;
+  justify-content: space-around;
+  align-items: end
+  }
+  /* 8 */
+  #Lago {
+    display: flex;
+  flex-direction: row-reverse
+  }
+  /* 9 */
+  #Lago {
+    display: flex;
+  flex-direction:column
+  }
+  /* 10 */
+  #Lago {
+    display: flex;
+  flex-direction: row-reverse;
+  justify-content: start
+  }
+  /* 11 */
+  #Lago {
+    display: flex;
+  flex-direction: column;
+  justify-content: end
+  }
+  /* 12 */
+  #Lago {
+    display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between
+  }
+  /* 13 */
+  #Lago {
+    display: flex;
+  align-items: end;
+  flex-direction: row-reverse;
+  justify-content:center
+  }
