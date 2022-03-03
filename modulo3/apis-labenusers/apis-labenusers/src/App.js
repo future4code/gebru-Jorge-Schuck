@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import styledComponents from "styled-components";
-
+import Usuarios from "./components/Usuarios.js"
 
 const urlUser =
   "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
@@ -18,7 +18,9 @@ export default class App extends React.Component {
     users: [],
     userInput: "",
     emailInput: ""
-  };
+
+  }
+  
 
   componentDidMount() {
     this.getAllUsers();
@@ -69,16 +71,25 @@ export default class App extends React.Component {
     this.setState({ emailInput: event.target.value });
   };
 
+  mudaPagina = () => {
+    if (this.state.paginaAtual === "App") {
+      this.setState({ paginaAtual: "Usuarios" });
+    } else {
+      this.setState({ paginaAtual: "App" });
+    }
+  };
+
   render() {
-    const usersComponents = this.state.users.map((novo) => {
-      return <li key={novo.id}> {novo.name}</li>
-    })
+    // const usersComponents = this.state.users.map((novo) => {
+    //   return <li key={novo.id}> {novo.name}</li>
+    // })
 
     return (
 
       <div>
         <div>
-          <button>Trocar de Tela</button>
+          <button onClick={this.mudaPagina}>Trocar de Tela</button>
+          {this.state.paginaAtual === "App" ? <App/> : <Usuarios/>}
         </div>
         <input
           value={this.state.userInput}
@@ -92,7 +103,7 @@ export default class App extends React.Component {
         />
         <button onClick={this.createUser}>Criar Usuário</button>
 
-        <div>{usersComponents}</div>
+        
 
       </div>
     )
