@@ -1,8 +1,34 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
-import UserDetail from "./UserDetail";
+
+const EstiloLista = styled.li`
+display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  width: 250px;
+`
+const Estilobotao = styled.button`
+display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-left:50px;
+  padding: 10px;
+  border: 1px solid black;
+  width: 280px;
+  font-size:18px;
+`
+const EstiloTexto = styled.h2`
+display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-left:50px;
+  padding: 10px;
+  
+  width: 258px;
+`
 
 const urlUser =
     "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
@@ -65,50 +91,35 @@ class Usuarios extends React.Component {
 
 
     }
-    mudarPagina = userId =>{
-        if (this.state.paginaAtual === "listaUsuario"){
-            this.setState({paginaAtual: "userDetail", userId: userId})
 
-        }else{
-            this.setState({paginaAtual: "listaUsuario", userId: ""})
-        }
-    }
-    mudarNome = event => {
-        const novoNome = event.target.value;
-
-        this.setState({ name: novoNome });
-    }
 
     render() {
+        
         return (
             <div>
-                {/* {this.state.currentPage === "listaUsuario" ? ( */}
+                
                     <div>
+                    <Estilobotao onClick={this.props.goToSignUpScreen}>Tela de Cadastro</Estilobotao>
+                        <EstiloTexto>Tela de Usuários</EstiloTexto>
                         <ul>
                             {this.state.listaUsuario.length === 0 && <div>Carregando...</div>}
                             {this.state.listaUsuario.map(usuario => {
                                 return (
-                                    <li>
+                                    <EstiloLista key={usuario.id}>
                                         <span onClick={() => this.mudarPagina(usuario.id)}>
                                             {usuario.name}
                                         </span>
                                         <button onClick={() => this.deleteUser(usuario.id)}>X</button>
 
-                                    </li>
+                                    </EstiloLista>
                                 )
                             })}
                         </ul>
-                        <hr />
-                        <h4>Procurar Usuário</h4>
-                        <input
-                            placeholder="Nome para a busca"
-                            type="text"
-                            value={this.state.name}
-                            onChange={this.mudarNome}
-                        />
-                        <button onClick={this.searchUsers}>Salvar Edição</button>
+                        
+                        
+                        
                     </div>
-                {/* // ):(<UserDetail userId={this.state.userId} changePage={this.mudarPagina} />)} */}
+                
                 
             </div>
         )
