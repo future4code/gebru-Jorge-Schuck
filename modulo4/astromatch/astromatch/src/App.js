@@ -7,10 +7,8 @@ import MatchScreen from "./components/MatchScreen";
 const ButtonStyle = styled.button`
 display:flex;
 justify-content:center;
-border-radius: 3px;
-border-color: pink;
-background-color: black;
-color: white;
+border-radius: 13px;
+background-color: transparent;
 width: 100px;
 cursor: pointer;
 position: absolute;
@@ -18,8 +16,9 @@ position: absolute;
     transform: scale(1.1);
     transition: all 0.2s;
   } 
-margin-left: 20px;
-font-size: large;
+margin-left: 35%;
+margin-top:1%;
+font-size: 23px;
 `
 
 
@@ -64,9 +63,10 @@ const App = () => {
 
     return (
       <div>
-                <ButtonStyle onClick = {clearProfile}> Clear </ButtonStyle> 
-
         <div>{renderScreen()}</div>
+        <ButtonStyle onClick = {clearProfile}> Clear </ButtonStyle> 
+
+        
       </div>
     );
 }

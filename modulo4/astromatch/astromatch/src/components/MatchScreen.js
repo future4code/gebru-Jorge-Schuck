@@ -2,39 +2,39 @@ import React, { useState, useEffect} from "react";
 import ImgBack from './img/back.png'
 import axios from "axios";
 import styled from "styled-components";
-
 const StyleListMatches = styled.div`
   padding: 20px;
   margin: 20px;
   background-color:white;
   border-radius:15px;
   display: flex;
+  
   justify-content: space-between;
   align-items: center;
   width: 350px;
   
 `
 const StyleDiv = styled.div`
-background-color: greenyellow;
+background-image: url(https://images2.fanpop.com/image/photos/9800000/blue-love-love-9844146-1024-768.jpg);
+background-repeat:round;
 display: flex;
 justify-content: center;
 flex-direction: column;
 border-radius: 15px;
 width: 25%;
-height: 85%;
+height: 800px;
 margin-left: 550px;
 padding: 30px;
 `
 const ButtonStyle = styled.button`
 border-radius: 50px;
-border-color: pink;
-background-color: pink;
+border:none;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
 width: 50px;
 height:60px;
-cursor: pointer;
+
 `
 const StyleButton = styled.img`
 width: 60px;
@@ -45,7 +45,7 @@ margin-bottom: 2px;
 const ImgProfileMatch = styled.img`
 width: 100px;
 height: 90px;
-border-radius: 70px;
+border-radius: 30px;
 `
 
 const StyleName = styled.div`
@@ -62,6 +62,7 @@ padding: 5px;
 font-size: xx-large;
 text-align: center;
 `
+
 
 const MatchScreen = (props) => {
     const [matchList, setMatchList] = useState([])
@@ -98,11 +99,13 @@ const Matches = matchList.map((ListProfile) =>{
         return (
           <div>
             <StyleDiv>
+              
               <ButtonStyle onClick = {props.backScreen}>
                 <StyleButton src = {ImgBack}/>
                 </ButtonStyle>
-                <StyleText> Meus Matches: </StyleText>
+                <StyleText> Matches: </StyleText>
                 {Matches}
+                
             </StyleDiv>
                 
           </div>

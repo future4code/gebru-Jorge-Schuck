@@ -6,7 +6,8 @@ import axios from "axios";
 import styled from "styled-components";
 
 const StyleDiv = styled.div`
-background-color: greenyellow;
+background-image: url(https://images2.fanpop.com/image/photos/9800000/blue-love-love-9844146-1024-768.jpg);
+background-repeat:round;
 display: flex;
 justify-content: center;
 flex-direction: column;
@@ -25,14 +26,13 @@ text-align: center;
 const StyleImg = styled.img`
 width: 70%!important;
 height: 65%!important;
-
+margin-top:50px;
 border-radius: 30px;
 display: flex;
 justify-content: center;
 align-self: center;
 `
 const StyleCard = styled.div`
-border:1px solid;
 display:flex;
 height:60%;
 flex-direction:column;
@@ -42,14 +42,13 @@ justify-content:center;
 const StyleProfile = styled.p`
 font-size: 40px;
 text-align: center;
-margin-left: 70px;
 margin-top: 2px;
-/* position:absolute; */
 color: black; 
 `
 const StyleDescription = styled.div`
 font-size: 25px;
 text-align: center;
+margin-bottom:50px;
 `
 
 const ImgButton = styled.img`
@@ -60,9 +59,11 @@ margin-bottom: 2px;
 `
 const StyleButtonFlame = styled.img`
 width: 60px;
-background-color:pink;
 border-radius: 50px;
-margin-bottom: 2px;
+
+
+
+
 `
 
 const TitleStyle = styled.h3`
@@ -70,15 +71,14 @@ margin: 0;
 margin-bottom:20px;
 padding: 5px;
 font-size: 50px;
-font-family:Verdana, Geneva, Tahoma, sans-serif;
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 text-align: center;
 `
 
 const StileDivButtons = styled.button`
 display:flex;
-background-color:greenyellow;
+background-color:transparent;
 border: white;
-border-color: pink;
 justify-content: space-between;
 margin-left: 15px;
 margin-right: 15px;
@@ -89,17 +89,31 @@ border-radius: 50px;
 border-color: transparent;
 background-color: transparent;
 display: flex;
-
 justify-content: space-evenly;
 width: 50px;
 height:60px;
 cursor: pointer;
 :hover {
-    transform: scale(1.2);
-    transition: all 0.2s;
+    transform: scale(1.1);
+    transition: all 0.1s;
   } 
 `
-
+const ButtonStyle1 = styled.button`
+border-radius: 50px;
+border-color: transparent;
+background-color: transparent;
+display: flex;
+justify-content: space-evenly;
+width: 50px;
+background-image:url();
+height:60px;
+margin-left:180px;
+cursor: pointer;
+:hover {
+    transform: scale(1.1);
+    transition: all 0.1s;
+  } 
+`
 
 const ProfileScreen = (props) => {
    const [profile, setProfile] = useState({})
@@ -151,18 +165,19 @@ return (
     <div>
         {!profile ? <StyleText> Ah não, acabaram-se os perfis. Atualize Página  </StyleText>:
         <StyleDiv>
-          <ButtonStyle onClick={props.goToNextScreen}>
+          <ButtonStyle1 onClick={props.goToNextScreen}>
             <StyleButtonFlame src = {ImgFlame}/>
-          </ButtonStyle>
+          </ButtonStyle1>
 
           <TitleStyle>ASTROMATCH</TitleStyle>
 
           <StyleCard>
           <StyleImg src={profile.photo}/>
           <StyleProfile> {profile.name}, {profile.age}</StyleProfile>
+          <StyleDescription>{profile.bio}</StyleDescription>
           </StyleCard>
           <br/>
-          <StyleDescription>{profile.bio}</StyleDescription>
+          
 
           <StileDivButtons>
             <ButtonStyle onClick = {() => choosePerson(profile.id, false)}>
