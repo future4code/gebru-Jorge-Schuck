@@ -7,17 +7,32 @@ import TripDetailsPage from "./TripDetailsPage"
 import AdminHomePage from "./AdminHomePage"
 import ApplicationFormPage from "./ApplicationFormPage"
 import CreateTripPage from "./CreateTripPage"
+import { useNavigate } from "react-router-dom";
+import { goToListTripsPage } from "../routes/cordinators";
+import { goBack } from "../routes/cordinators";
+import { goToLoginPage } from "../routes/cordinators";
+
+const StylePage = styled.div`
+display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+margin-top: 40px;
+`
+
 
 const HomePage = () =>{
 
+  const navigate = useNavigate()
+
     return (
-      <div>
+      <StylePage>
         <h1>Labex</h1>
             <div>
-                <button>Ver Viagens</button>
-                <button>Área de Admin</button>
+                <button onClick={()=>goToListTripsPage(navigate)}>Ver Viagens</button>
+                <button onClick={()=>goToLoginPage(navigate)}>Área de Admin</button>
             </div>
-      </div>
+      </StylePage>
     )
   }
   export default HomePage;

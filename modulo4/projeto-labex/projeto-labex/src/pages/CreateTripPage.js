@@ -7,13 +7,34 @@ import TripDetailsPage from "./TripDetailsPage"
 import HomePage from "./HomePage";
 import AdminHomePage from "./AdminHomePage"
 import ApplicationFormPage from "./ApplicationFormPage"
+import { goBack } from "../routes/cordinators";
+import { useNavigate } from "react-router-dom";
+
+const StylePage = styled.div`
+display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+margin-top: 40px;
+`
+
+
 
 const CreateTripPage = () =>{
-
+    const navigate = useNavigate()
 
     return (
 
-        <div></div>
+        <StylePage>
+            <h2>Criar Viagem</h2>
+            <div>
+                <p>Form para Criar Viagem</p>
+            </div>
+            <div>
+            <button onClick={()=>goBack(navigate)}>voltar</button>
+            <button>Criar</button>
+            </div>
+        </StylePage>
     )
 }
 

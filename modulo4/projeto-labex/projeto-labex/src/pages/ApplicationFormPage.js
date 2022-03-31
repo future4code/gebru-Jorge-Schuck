@@ -7,13 +7,31 @@ import LoginPage from "./LoginPage"
 import TripDetailsPage from "./TripDetailsPage"
 import HomePage from "./HomePage";
 import AdminHomePage from "./AdminHomePage"
+import { goBack } from "../routes/cordinators";
+import { useNavigate } from "react-router-dom";
+
+const StylePage = styled.div`
+display:flex;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+margin-top: 40px;
+`
+
+
 
 const ApplicationFormPage = () =>{
-
+    const navigate = useNavigate()
 
     return (
 
-        <div></div>
+        <StylePage>
+            <h2>Form para inscrever-se</h2>
+            <div>
+            <button onClick={()=>goBack(navigate)}>Voltar</button>
+            <button>Enviar</button>
+            </div>
+        </StylePage>
     )
 }
 

@@ -8,13 +8,14 @@ import HomePage from "./pages/HomePage"
 import ListTripsPage from "./pages/ListTripsPage"
 import LoginPage from "./pages/LoginPage"
 import TripDetailsPage from "./pages/TripDetailsPage"
+import { Router } from "../src/routes/Router";
 
 
 const App = () =>{
 
   return (
     <div>
-      <HomePage/>
+      <Router/>
     </div>
   )
 }
