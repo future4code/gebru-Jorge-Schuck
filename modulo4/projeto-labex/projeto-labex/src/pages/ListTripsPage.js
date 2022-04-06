@@ -10,6 +10,7 @@ import AdminHomePage from "./AdminHomePage"
 import { goBack } from "../routes/cordinators";
 import { useNavigate } from "react-router-dom";
 import { goToApplicationFormPage } from "../routes/cordinators";
+import { url_base } from "../constants/url_base";
 
 const StylePage = styled.div`
 display:flex;

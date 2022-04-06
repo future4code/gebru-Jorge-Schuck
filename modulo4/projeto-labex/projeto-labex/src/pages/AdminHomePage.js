@@ -12,7 +12,7 @@ import { goBack } from "../routes/cordinators";
 import { goToCreateTripPage } from "../routes/cordinators";
 import { goToHomePage } from "../routes/cordinators";
 import { goToTripDetailsPage } from "../routes/cordinators";
-
+import { useProtectedPage } from "../hooks/useProtectedPage";
 const StylePage = styled.div`
 display:flex;
 justify-content: center;
@@ -22,6 +22,9 @@ margin-top: 40px;
 `
 
 const AdminHomePage = () =>{
+    useProtectedPage()
+
+    
     const navigate = useNavigate()
 
     return (

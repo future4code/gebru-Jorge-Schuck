@@ -9,7 +9,7 @@ import AdminHomePage from "./AdminHomePage"
 import ApplicationFormPage from "./ApplicationFormPage"
 import { goBack } from "../routes/cordinators";
 import { useNavigate } from "react-router-dom";
-
+import { useProtectedPage } from "../hooks/useProtectedPage";
 const StylePage = styled.div`
 display:flex;
 justify-content: center;
@@ -21,6 +21,7 @@ margin-top: 40px;
 
 
 const CreateTripPage = () =>{
+    useProtectedPage()
     const navigate = useNavigate()
 
     return (
