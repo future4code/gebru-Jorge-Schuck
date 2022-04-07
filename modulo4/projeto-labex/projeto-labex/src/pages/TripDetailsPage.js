@@ -23,7 +23,7 @@ margin-top: 40px;
 
 const TripDetailsPage = () =>{
     useProtectedPage()
-
+    
     const navigate = useNavigate()
     const params = useParams()
     

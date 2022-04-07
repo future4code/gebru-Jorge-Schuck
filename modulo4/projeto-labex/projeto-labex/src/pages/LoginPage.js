@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { goBack } from "../routes/cordinators";
 import { goToAdminHomePage } from "../routes/cordinators";
 import { goToTripDetailsPage } from "../routes/cordinators";
-
+import { url_base } from "../constants/url_base";
+import useForm from "../hooks/useForm";
 
 const StylePage = styled.div`
 display:flex;
@@ -22,25 +23,21 @@ margin-top: 40px;
 `
 
 const LoginPage = () =>{
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const navigate = useNavigate()
+    const { form, onChange, cleanFields } = useForm({
+        email: '',
+        password: '',
+      })
 
-    const onChangeEmail = (event) =>{
-        setEmail(event.target.value)
-    }
-    const onChangePassword = (event) =>{
-        setPassword(event.target.value)
-    }
-    const onSubmitLogin = () => {
+    const navigate = useNavigate()
+        
+
+    const onSubmitLogin = (event) => {
         const URL = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/jorge-schuck-gebru/login"
-        const body = {
-            email: email,
-            password: password
-        }
+        event.preventDefault()
+        console.log("Login feito com sucesso", form)
 
         axios
-        .post(URL, body)
+        .post(URL, form)
         .then((res) =>{
             localStorage.setItem("token", res.data.token)
             goToAdminHomePage(navigate)
@@ -48,27 +45,41 @@ const LoginPage = () =>{
         .catch((err) =>{
             console.log("Erro:", err.response)
         })
+        cleanFields()  
     }
+    
 
     return (
 
         <StylePage>
+            <form onSubmit={onSubmitLogin}>
             <h2>Login Page</h2>
             <div>
-            <input placeholder="Email"
-            type="email"
-            value={email}
-            onChange={onChangeEmail}
+            <input 
+            placeholder="Email"
+            name='email'
+            value={form.email}
+            onChange={onChange}
+            required
+            type={"email"}
+            
             />
-            <input placeholder="Senha"
-            type="password"
-            value={password}
-            onChange={onChangePassword}/>
+            <input 
+            placeholder="Senha"
+            name='password'
+            value={form.password}
+            onChange={onChange}
+            type={'password'}
+            required
+            pattern={'^.{3,}'}
+            title={'A senha deve ter no mínimo 3 caracteres'}
+            />
             </div>
             <div>
-                <button onClick={()=>goBack(navigate)}>Voltar</button>
-                <button onClick={onSubmitLogin}>Entrar</button>
+                <button>Entrar</button>
             </div>
+            </form>
+            <button onClick={()=>goBack(navigate)}>Voltar</button>
         </StylePage>
     )
 }
