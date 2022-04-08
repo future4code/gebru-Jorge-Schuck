@@ -1,12 +1,6 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import styled from "styled-components";
-import ApplicationFormPage from "./ApplicationFormPage"
-import CreateTripPage from "./CreateTripPage"
-import ListTripPage from "./ListTripsPage"
-import LoginPage from "./LoginPage"
-import HomePage from "./HomePage";
-import AdminHomePage from "./AdminHomePage"
 import { goBack } from "../routes/cordinators";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProtectedPage } from "../hooks/useProtectedPage";
@@ -25,38 +19,82 @@ const TripDetailsPage = () =>{
     useProtectedPage()
     
     const navigate = useNavigate()
-    const params = useParams()
-    
-    useEffect (() =>{
 
-        const headers = {
-            headers: {
-                auth: localStorage.getItem("token")
-            }
-        }
+    const params = useParams()
+
+    const [trip, setTrip] = useState("")
+
+    const token = localStorage.getItem(`token`)
+
+    const headers = {auth: token}
+
+    const getTripDetails = () =>{
         axios
-        .get(`${url_base}/trip/3gaLZH8Uu5OUwDiWEvJ2`, headers)
+        .get(`${url_base}/trip/${params.id}`, headers)
         .then((res)=>{
-            console.log(res.data.trip)
+            setTrip(res.data.trip)
         })
         .catch((err)=>{
-            console.log("Erro:", err.response)
+            alert("Algo deu errado!")
         })
-    }, [])
-    
+    }
+     useEffect(()=>{
+         getTripDetails()
+     },[])
+
+     const candidats = trip.candidates && trip.candidates.map((candidate)=>{
+         const decideCandidates = () =>{
+             const body = {
+                 "approve": true
+             }
+             const url = `${url_base}/trip/${params.id}/candidates/${candidate.id}/decide`
+             axios.put(url, body, headers)
+             .then((res)=>{
+                 alert(`A candidatura de ${candidate.name} foi aprovada`)
+             })
+             .catch((err)=>{
+                 alert("Algo deu errado")
+             })
+         }
+         return (
+            <div key={trip.id}>
+            <p>Candidatos Pendentes:</p>
+            {candidate.name && <p><b>Nome: </b>{candidate.name}</p>}
+            {candidate.age && <p><b>Idade: </b>{candidate.age}</p>}
+            {candidate.profession && <p><b>Profissão: </b>{candidate.profession}</p>}
+            {candidate.country && <p><b>País: </b>{candidate.country}</p>}
+            {candidate.applicationText && <p><b>Texto da Candidatura: </b>{candidate.applicationText}</p>}
+            <div>
+                <button onClick={() => decideCandidates}>APROVAR</button>
+                <button>REPROVAR</button>
+            </div>
+        </div>
+         )
+     })  
+     
+     const approves = trip.approved && trip.approved.map((confirmed) => {
+        return (
+            <div>
+                <p>{confirmed.name}</p>
+            </div>
+        )
+    })
 
     return (
 
         <StylePage>
-            <div>
-            <h2>Viagem Disponivel</h2>
-        
-            <p>Descrição da viagem</p>
-            <p>Candidatos</p>
+            <button onClick={()=>goBack(navigate)}>Voltar</button>
+            <div key={trip.id}>
+                <p>Detalhes da Viagem</p>
+                {trip.name && <p><b>Nome: </b>{trip.name}</p>}
+                {trip.description && <p><b>Descrição: </b>{trip.description}</p>}
+                {trip.planet && <p><b>Planeta: </b>{trip.planet}</p>}
+                {trip.durationInDays && <p><b>Duração: </b>{trip.durationInDays} dias</p>}
+                {trip.date && <p><b>Data: </b>{trip.date}</p>}
             </div>
-            <div>
-            <button onClick={()=>goBack(navigate, params)}>voltar</button>
-            </div>
+            {candidats}
+            {approves}
+
         </StylePage>
     )
 }

@@ -1,16 +1,11 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import styled from "styled-components";
-import CreateTripPage from "./CreateTripPage"
-import ListTripPage from "./ListTripsPage"
-import LoginPage from "./LoginPage"
-import TripDetailsPage from "./TripDetailsPage"
-import HomePage from "./HomePage";
-import AdminHomePage from "./AdminHomePage"
 import { goBack } from "../routes/cordinators";
 import { useNavigate } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { url_base } from "../constants/url_base";
+import { country } from "../constants/countries";
 
 const StylePage = styled.div`
 display:flex;
@@ -18,6 +13,11 @@ justify-content: center;
 align-items:center;
 flex-direction: column;
 margin-top: 40px;
+`
+const StyleForms = styled.div`
+display:flex;
+align-items:center;
+flex-direction:column;
 `
 
 
@@ -81,7 +81,7 @@ const ApplicationFormPage = () =>{
         <StylePage>
             <h2>Form para inscrever-se</h2>
             <form onSubmit={register}>
-            <div>
+            <StyleForms>
                 <select
                 name="trip"
                 onChange={onChangeTrip}
@@ -120,13 +120,17 @@ const ApplicationFormPage = () =>{
                     name="country"
                     value={form.country}
                     onChange={onChange}
-                    required
-                    
-                ></select>
+                    required    
+                >
+                    <option value={""} disabled>Escolha um País</option>
+                    {country.map((countryes) => {
+                        return <option value={countryes} key={countryes}>{countryes}</option>
+                    })}
+                </select>
 
             
             <button>Enviar</button>
-            </div>
+            </StyleForms>
             </form>
             <button onClick={()=>goBack(navigate)}>Voltar</button>
         </StylePage>

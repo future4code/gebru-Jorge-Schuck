@@ -1,15 +1,7 @@
 import React, {useState, useEffect} from "react";
-import axios from "axios";
 import styled from "styled-components";
-import LoginPage from "./LoginPage"
-import ListTripPage from "./ListTripsPage"
-import TripDetailsPage from "./TripDetailsPage"
-import AdminHomePage from "./AdminHomePage"
-import ApplicationFormPage from "./ApplicationFormPage"
-import CreateTripPage from "./CreateTripPage"
 import { useNavigate } from "react-router-dom";
 import { goToListTripsPage } from "../routes/cordinators";
-import { goBack } from "../routes/cordinators";
 import { goToLoginPage } from "../routes/cordinators";
 
 const StylePage = styled.div`
