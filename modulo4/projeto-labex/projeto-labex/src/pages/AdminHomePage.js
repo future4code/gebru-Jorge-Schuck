@@ -15,7 +15,48 @@ align-items:center;
 flex-direction: column;
 margin-top: 40px;
 `
-
+const StyleButtonLeft = styled.button`
+background-color: #2F4F4F	;
+color: white;
+width: 20vw;
+height: 2vw;
+margin-right:1vw;
+border-radius:10px;
+&:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+`
+const Title = styled.h2`
+color:white;
+`
+const StyleList = styled.div`
+display:flex;
+background-color:whitesmoke;
+border-radius:20px;
+padding:1vh;
+width:60vw;
+justify-content: center;
+align-items:center;
+flex-direction: column;
+margin-top: 1vh;
+`
+const Font = styled.p`
+font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+`
+const Background = styled.div`
+background-image: url("https://th.bing.com/th/id/R.90c615c3509c77880470b187c6f2fe20?rik=1TywlaYSgBY2Lg&pid=ImgRaw&r=0");
+background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
+padding:10vh;
+`
+const FontX = styled.button`
+border-radius:100px;
+font-size:18px;
+`
 const AdminHomePage = () =>{
     useProtectedPage()
     const [trips, setTrips] =useState([])
@@ -66,37 +107,33 @@ const AdminHomePage = () =>{
             }
         }
         return (
-            <div
+            <StyleList
             key={trip.id}
             onClick={() => goToTripDetailsPage(navigate, trip.id)}
             >
-            <p>{trip.name}</p>
-            <button onClick={() => del(trip.id)}>X</button>
-            </div>
+            <Font>{trip.name}</Font>
+            <FontX onClick={() => del(trip.id)}>X</FontX>
+            </StyleList>
         )
 
     })
 
     return (
 
-        <StylePage>
-            <h2>Painel Administrativo</h2>
+        <Background>
+            <StylePage>
+            <Title>Painel Administrativo</Title>
             <div>
-            <button onClick={()=>goBack(navigate)}>voltar</button>
-            <button onClick={()=>goToCreateTripPage(navigate)}>Criar Viagem</button>
-            <button onClick={logout}>Logout</button>
+            <StyleButtonLeft onClick={()=>goBack(navigate)}>voltar</StyleButtonLeft>
+            <StyleButtonLeft onClick={()=>goToCreateTripPage(navigate)}>Criar Viagem</StyleButtonLeft>
+            <StyleButtonLeft onClick={logout}>Logout</StyleButtonLeft>
             </div>
             <div>
-            {tripList}
-                <div>   
-                    <button onClick={()=>goToTripDetailsPage(navigate)}>VIAGENS DISPONIVEIS</button>
-                </div>
-                
+            {tripList}            
             </div>
-            <div>
-                
-            </div>
-        </StylePage>
+            
+            </StylePage>
+        </Background>
     )
 }
 

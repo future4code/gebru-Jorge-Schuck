@@ -11,10 +11,11 @@ import TripDetailsPage from "./pages/TripDetailsPage"
 import { Router } from "../src/routes/Router";
 
 
+
 const App = () =>{
 
   return (
-    <div>
+    <div> 
       <Router/>
     </div>
   )

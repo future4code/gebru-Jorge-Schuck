@@ -9,7 +9,6 @@ import { url_base } from "../constants/url_base";
 const StylePage = styled.div`
 display:flex;
 justify-content: center;
-align-items:center;
 flex-direction: column;
 margin-top: 40px;
 `
@@ -19,11 +18,41 @@ flex-direction:column;
 border:1px solid;
 border-radius:20px ;
 margin-bottom:20px;
-background-color: grey ;
+background-color: white ;
+padding:2vh;
+
+align-items:center;
 `
-
-
-
+const Background = styled.div`
+background-image: url("https://th.bing.com/th/id/R.90c615c3509c77880470b187c6f2fe20?rik=1TywlaYSgBY2Lg&pid=ImgRaw&r=0");
+background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
+padding:10vh;
+`
+const Title = styled.h2`
+color:white;
+display:flex;
+justify-content:center;
+`
+const StylePositionButtons = styled.div`
+display:flex;
+justify-content:center;
+`
+const StyleButton = styled.button`
+background-color: #2F4F4F	;
+color: white;
+width: 20vw;
+height: 2vw;
+margin-right:1vw;
+border-radius:10px;
+&:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+`
 const ListTripPage = () =>{
     const [trips, setTrips] = useState([])
     const navigate = useNavigate()
@@ -47,6 +76,7 @@ const ListTripPage = () =>{
 
     const TripList = trips.map((trip) =>{
         return (
+         
             <StyleList key={trip.id}>
             <p><b>Nome: </b>{trip.name}</p>
             <p><b>Descrição: </b>{trip.description}</p>
@@ -54,21 +84,22 @@ const ListTripPage = () =>{
             <p><b>Duração: </b>{trip.durationInDays} dias</p>
             <p><b>Data: </b>{trip.date}</p>
             </StyleList>
+            
         )
     })
     return (
 
-        <StylePage>
+        <Background>
             
-            <div>
-            <button onClick={()=>goBack(navigate)}>Voltar</button>          
-            <button onClick={()=>goToApplicationFormPage(navigate)}>Inscrever-se</button>
-            </div>
-            <h2>Lista de Viagens</h2>
-            <div>
+            <StylePositionButtons>
+            <StyleButton onClick={()=>goBack(navigate)}>Voltar</StyleButton>          
+            <StyleButton onClick={()=>goToApplicationFormPage(navigate)}>Inscrever-se</StyleButton>
+            </StylePositionButtons>
+            <Title>Lista de Viagens</Title>
+            <StylePage>
                 {TripList}
-            </div>
-        </StylePage>
+            </StylePage>
+        </Background>
     )
 }
 

@@ -7,6 +7,13 @@ import useForm from "../hooks/useForm";
 import { url_base } from "../constants/url_base";
 import { country } from "../constants/countries";
 
+const Background = styled.div`
+background-image: url("https://th.bing.com/th/id/R.90c615c3509c77880470b187c6f2fe20?rik=1TywlaYSgBY2Lg&pid=ImgRaw&r=0");
+background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
+padding:15vh;
+`
 const StylePage = styled.div`
 display:flex;
 justify-content: center;
@@ -14,13 +21,48 @@ align-items:center;
 flex-direction: column;
 margin-top: 40px;
 `
-const StyleForms = styled.div`
-display:flex;
-align-items:center;
-flex-direction:column;
+const StyleForms = styled.form`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+width: 3vw;
+margin: 2vw auto;
+input, select{
+    width: 100%;
+    height: 2.5vw;
+    margin-top: 2.5vw;
+    background-color: white;
+    
+}
 `
+const StyleInputs = styled.input`
+border-radius:15px;
+`
+const StyleSelect = styled.select`
+border-radius:15px;
 
-
+`
+const StyleButton = styled.button`
+background-color: #2F4F4F	;
+color: white;
+width: 20vw;
+height: 2vw;
+margin-top:2vh;
+margin-right:1vw;
+border-radius:10px;
+&:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+`
+const Title = styled.h1`
+color:white;
+display:flex;
+justify-content:center;
+`
 
 const ApplicationFormPage = () =>{
     const navigate = useNavigate()
@@ -78,11 +120,11 @@ const ApplicationFormPage = () =>{
 
     return (
 
-        <StylePage>
-            <h2>Form para inscrever-se</h2>
-            <form onSubmit={register}>
-            <StyleForms>
-                <select
+        <Background>
+            <Title> Inscreva-se</Title>
+            <StyleForms onSubmit={register}>
+            <StylePage>
+                <StyleSelect
                 name="trip"
                 onChange={onChangeTrip}
                 value={form.value}
@@ -90,9 +132,9 @@ const ApplicationFormPage = () =>{
                 >
                     <option>Escolha uma Viagem</option>
                     {chooseTrip}
-                </select>
+                </StyleSelect>
                 
-                <input
+                <StyleInputs
                 placeholder={"Idade"}
                 name="age"
                 type={"number"}
@@ -101,21 +143,21 @@ const ApplicationFormPage = () =>{
                 required
                 min={18}
                 />
-                <input
+                <StyleInputs
                 placeholder={"Texto de Candidatura"}
                 name="applicationText"
                 value={form.applicationText}
                 onChange={onChange}
                 required
                 />
-                <input
+                <StyleInputs
                     placeholder={"Profissão"}
                     name="profession"
                     value={form.profession}
                     onChange={onChange}
                     required
                 />
-                <select
+                <StyleSelect
                     placeholder={"País"}
                     name="country"
                     value={form.country}
@@ -126,14 +168,14 @@ const ApplicationFormPage = () =>{
                     {country.map((countryes) => {
                         return <option value={countryes} key={countryes}>{countryes}</option>
                     })}
-                </select>
+                </StyleSelect>
 
             
-            <button>Enviar</button>
+            <StyleButton>Enviar</StyleButton>
+            </StylePage>
             </StyleForms>
-            </form>
-            <button onClick={()=>goBack(navigate)}>Voltar</button>
-        </StylePage>
+            <StyleButton onClick={()=>goBack(navigate)}>Voltar</StyleButton>
+        </Background>
     )
 }
 

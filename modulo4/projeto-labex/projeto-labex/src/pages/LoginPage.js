@@ -6,14 +6,63 @@ import { goBack } from "../routes/cordinators";
 import { goToAdminHomePage } from "../routes/cordinators";
 import useForm from "../hooks/useForm";
 
-const StylePage = styled.div`
+const Background = styled.div`
+background-image: url("https://th.bing.com/th/id/R.90c615c3509c77880470b187c6f2fe20?rik=1TywlaYSgBY2Lg&pid=ImgRaw&r=0");
+background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
+padding:35vh;
+`
+const StylePage = styled.form`
 display:flex;
 justify-content: center;
 align-items:center;
 flex-direction: column;
-margin-top: 40px;
+margin-bottom:20vh;
 `
+const StyleButtonLeft = styled.button`
+background-color: #2F4F4F	;
+color: white;
+width: 20vw;
+height: 2vw;
+margin-left:0.5vw;
+border-radius:10px;
+&:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+`
+const StyleButtonRight = styled.button`
+background-color: #2F4F4F	;
+color: white;
+width: 20vw;
+height: 2vw;
+margin-left: 35vh;
+border-radius:10px;
+&:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+`
+const Title = styled.h2`
+color:white;
+`
+const StyleInputsLeft = styled.input`
+border-radius:5px;
+margin-right:8vh;
+margin-bottom:1vh;
+height:20px;
+`
+const StyleInputsRight = styled.input`
+border-radius:5px;
+height:2vh;
+margin-bottom:1vh;
 
+`
 const LoginPage = () =>{
     const { form, onChange, cleanFields } = useForm({
         email: '',
@@ -43,11 +92,12 @@ const LoginPage = () =>{
 
     return (
 
-        <StylePage>
-            <form onSubmit={onSubmitLogin}>
-            <h2>Login Page</h2>
+        <div>
+            <Background>
+            <StylePage onSubmit={onSubmitLogin}>
+            <Title>Login Page</Title>
             <div>
-            <input 
+            <StyleInputsLeft 
             placeholder="Email"
             name='email'
             value={form.email}
@@ -56,7 +106,7 @@ const LoginPage = () =>{
             type={"email"}
             
             />
-            <input 
+            <StyleInputsRight 
             placeholder="Senha"
             name='password'
             value={form.password}
@@ -67,12 +117,14 @@ const LoginPage = () =>{
             title={'A senha deve ter no mínimo 3 caracteres'}
             />
             </div>
-            <div>
-                <button>Entrar</button>
+            <div>    
+                <StyleButtonLeft>Entrar</StyleButtonLeft>
             </div>
-            </form>
-            <button onClick={()=>goBack(navigate)}>Voltar</button>
-        </StylePage>
+            </StylePage>
+            <StyleButtonRight onClick={()=>goBack(navigate)}>Voltar</StyleButtonRight>
+            </Background>
+            
+        </div>
     )
 }
 

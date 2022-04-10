@@ -9,20 +9,59 @@ import { url_base } from "../constants/url_base";
 import { planets } from "../constants/planets";
 
 
-
-const StylePage = styled.div`
-display:flex;
-justify-content: center;
-align-items:center;
-flex-direction: column;
-margin-top: 40px;
+const Background = styled.div`
+background-image: url("https://th.bing.com/th/id/R.90c615c3509c77880470b187c6f2fe20?rik=1TywlaYSgBY2Lg&pid=ImgRaw&r=0");
+background-size:cover;
+background-repeat: no-repeat;
+background-position: center center;
+padding:20vh;
 `
-const StyleForm = styled.form`
+const StyleForms = styled.form`
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-between;
+width: 30vw;
+margin: 2vw auto;
+input, select{
+    width: 100%;
+    height: 2.5vw;
+    margin-top: 2.5vw;
+    background-color: white;
+    
+}
+`
+const StyleInputs = styled.input`
+border-radius:15px;
+`
+const StyleSelect = styled.select`
+border-radius:15px;
 
+`
+const StyleButton = styled.button`
+background-color: #2F4F4F	;
+color: white;
+width: 20vw;
+height: 2vw;
+margin-top:2vh;
+margin-right:1vw;
+border-radius:10px;
+&:hover{
+    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+`
+const Title = styled.h1`
+color:white;
+display:flex;
+justify-content:center;
+`
+const PositionButton = styled.div`
+
+display:flex;
+justify-content:center;
 `
 
 
@@ -58,16 +97,16 @@ const CreateTripPage = () =>{
         + ("0" + currentDay.getDate()).substr(-2)
     return (
 
-        <StylePage>
-            <h1>CRIAR VIAGEM</h1>
-            <StyleForm onSubmit={createTrip}>
-                <input
+        <Background>
+            <Title>CRIAR VIAGEM</Title>
+            <StyleForms onSubmit={createTrip}>
+                <StyleInputs
                     placeholder={"Nome"}
                     name={"name"}
                     value={form.name}
                     onChange={onChange}
                     required />
-                <select
+                <StyleSelect
                     name={"planet"}
                     value={form.planet}
                     onChange={onChange}
@@ -77,8 +116,8 @@ const CreateTripPage = () =>{
                     {planets.map((planet) => {
                         return <option value={planet} key={planet}>{planet}</option>
                     })}
-                </select>
-                <input
+                </StyleSelect>
+                <StyleInputs
                     placeholder={"Data"}
                     type={"date"}
                     name={"date"}
@@ -86,25 +125,25 @@ const CreateTripPage = () =>{
                     onChange={onChange}
                     required
                     min={fromToday} />
-                <input
+                <StyleInputs
                     placeholder={"Descrição da Viagem"}
                     name={"description"}
                     value={form.description}
                     onChange={onChange}
                     required />
-                <input
+                <StyleInputs
                     placeholder={"Duração da Viagem em dias"}
                     type={"number"}
                     name={"durationInDays"}
                     value={form.durationInDays}
                     onChange={onChange}
                     required />
-                <div>
-                    <button onClick={()=>goBack(navigate)}>Voltar</button>
-                    <button>CRIAR</button>
-                </div>
-            </StyleForm>
-        </StylePage>
+                <PositionButton>
+                    <StyleButton onClick={()=>goBack(navigate)}>Voltar</StyleButton>
+                    <StyleButton>CRIAR</StyleButton>
+                </PositionButton>
+            </StyleForms>
+        </Background>
     )
 }
 
